@@ -32,19 +32,19 @@ export default class WelcomeScreen extends React.Component{
     });
   }
 
-  userSignup = async(email, password, confirmPassword)=>{
+  userSignup = (email, password, confirmPassword)=>{
     if (password!==confirmPassword){
       return Alert.alert('Passwords do not match \n Check your Password');
     }
     else{
       console.log('SignIn');
       firebase.auth().createUserWithEmailAndPassword(email, password)
-      .then((user) => {
+      .then(() => {
         db.collection('users').add({
           first_name:this.state.firstName,
           last_name:this.state.lastName,
           contact:this.state.contactNo,
-          email_id:email,
+          email_id:this.state.email,
           address:this.state.address
         });
         return Alert.alert('User added successfully','',
@@ -220,11 +220,8 @@ export default class WelcomeScreen extends React.Component{
 
  
 const styles = StyleSheet.create({
- 
- 
   container:{
-  
-   flex:1,
+    flex:1,
   
    backgroundColor:'#F8BE85',
   

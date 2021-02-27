@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Header} from 'react-native-elements';
 
-const MyHeader = props=>{
+const MyHeader = props =>{
   return(
   <Header
     centerComponent = {{text:props.title, style:{

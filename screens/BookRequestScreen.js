@@ -14,7 +14,7 @@ export default class BookRequestScreen extends Component{
     }
   }
   createUniqueId(){
-    return Math.random.toString(36).substring(7);
+    return Math.random().toString(36).substring(7);
   }
   addRequest = (bookName, reasonForRequest)=>{
     var userId = this.state.userId;
@@ -83,42 +83,18 @@ const styles = StyleSheet.create({
     width:"75%", 
     height:50, 
     justifyContent:'center', 
-    alignItems:'center',
- 
- 
-    borderRadius:10,
- 
- 
-    backgroundColor:"#ff5722",
- 
- 
-    shadowColor: "#000",
- 
- 
-    shadowOffset: {
- 
- 
-       width: 0,
- 
- 
-       height: 8,
- 
- 
-    },
- 
- 
-    shadowOpacity: 0.44,
- 
- 
-    shadowRadius: 10.32,
- 
- 
-    elevation: 16,
- 
- 
-    marginTop:20
- 
- 
+    alignItems:'center', 
+    borderRadius:10, 
+    backgroundColor:"#ff5722", 
+    shadowColor: "#000", 
+    shadowOffset:{ 
+       width: 0, 
+       height: 8, 
+    }, 
+    shadowOpacity: 0.44, 
+    shadowRadius: 10.32, 
+    elevation: 16, 
+    marginTop:20 
     },
   }
 ) 

@@ -4,6 +4,7 @@ import {ListItem} from 'react-native-elements';
 import firebase from 'firebase';
 import db from '../Config';
 import MyHeader from '../components/MyHeader';
+import ReceiverDetailsScreen from './ReceiverDetailsScreen';
 
 export default class BookDonateScreen extends Component{
   constructor(){
@@ -26,7 +27,7 @@ export default class BookDonateScreen extends Component{
   }
 
   componentWillUnmount(){
-    this.requestRef = null;
+    //this.requestRef = null;
   }
 
   keyExtractor = (item,index)=>index.toString();
@@ -41,8 +42,11 @@ export default class BookDonateScreen extends Component{
           <ListItem.Title style = {{color:'black', fontWeight:'bold'}}>{item.book_name}</ListItem.Title>
           <ListItem.Subtitle style = {{color:'green'}}>{item.reason_for_request}</ListItem.Subtitle>
           <TouchableOpacity
-            style = {styles.button}>
-              <Text style = {{color:'white'}}>View</Text>
+            style = {styles.button}
+            onPress = {()=>{
+              this.props.navigation.navigate('ReceiverDetailsScreen', {"details":item});
+            }}>
+              <Text style = {{color:'white'}}>View Details</Text>
           </TouchableOpacity>
         </ListItem.Content>
       </ListItem>
